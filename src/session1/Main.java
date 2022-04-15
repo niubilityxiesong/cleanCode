@@ -1,5 +1,5 @@
 // TODO: A, add roll back & roll back times: 3
-//  B, add random "好吃的" fruit;
+//  B, add random fruit;
 //  C, add roll 3 & 4;
 //  D, add VIP: roll back time without limit & only get "好吃的" fruit after roll back
 
@@ -31,8 +31,15 @@ public class Main {
                     System.out.println("我的金币减少了");
                     money /= 2;
                     break;
+                case 3:
+                    System.out.println("我得到了随机水果");
+                    fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
+                    break;
+                case 4:
+                    System.out.println("我得到了随机水果");
+                    fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
                 case 6:
-                    System.out.println("我得到了水果");
+                    System.out.println("我得到了随机水果");
                     fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
                     break;
                 default:
