@@ -2,17 +2,20 @@
 //  B, add random fruit;
 //  C, add roll 3: "好吃的" & 4 "坏掉的" & 6 随机的;
 //  D, add VIP: roll back time without limit
-//  E, only get "好吃的" fruit after roll back
+//  E, add VIPP: only get "好吃的" fruit after roll back
 
 package session1;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         final String[] fruitsName = {"苹果", "桃子", "梨子", "甘蔗"};
         Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        boolean vip = false;
         //init money and fruits
         int money = 100;
         ArrayList<String> fruits = new ArrayList<>();
@@ -53,8 +56,20 @@ public class Main {
                 System.out.println("存储成功！");
             }
             if (money < money2 / 2) {
-                if (count < 1) {
-                    System.out.println("重试次数用尽！");
+                if (count < 1 && !vip) {
+                    System.out.println("重试次数用尽！是否充值？ Yes or No");
+                    String input = scanner.next();
+                    vip = input.equalsIgnoreCase("yes");
+                    //add payment logic
+                    // ....
+                    // ....
+                    if (vip) {
+                        money = money2;
+                        fruits.clear();
+                        fruits.addAll(fruits2);
+                        count--;
+                        System.out.println("胜败乃兵家常事，大侠请重新来过！");
+                    }
                 } else {
                     money = money2;
                     fruits.clear();
