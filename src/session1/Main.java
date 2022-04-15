@@ -16,6 +16,7 @@ public class Main {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         boolean vip = false;
+        boolean vipp = false;
         //init money and fruits
         int money = 100;
         ArrayList<String> fruits = new ArrayList<>();
@@ -24,6 +25,14 @@ public class Main {
         int count = 3;
         //start game:
         for (int i = 0; i < 100; i++) {
+            if (vip && !vipp) {
+                System.out.println("您还不是尊贵的VIP中P，是否加入？ Y or N");
+                String input = scanner.next();
+                vipp = input.equalsIgnoreCase("y");
+                //add payment logic
+                //..
+                //..
+            }
             System.out.println("这是第" + i + "句游戏:");
             int roll = random.nextInt(6) + 1;
             switch (roll) {
