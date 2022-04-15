@@ -1,7 +1,8 @@
 // TODO: A, add roll back & roll back times: 3
 //  B, add random fruit;
-//  C, add roll 3 & 4;
-//  D, add VIP: roll back time without limit & only get "好吃的" fruit after roll back
+//  C, add roll 3: "好吃的" & 4 "坏掉的" & 6 随机的;
+//  D, add VIP: roll back time without limit
+//  E, only get "好吃的" fruit after roll back
 
 package session1;
 
@@ -32,15 +33,15 @@ public class Main {
                     money /= 2;
                     break;
                 case 3:
-                    System.out.println("我得到了随机水果");
-                    fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
+                    System.out.println("我得到了好吃的水果");
+                    fruits.add("好吃的" + fruitsName[random.nextInt(fruitsName.length)]);
                     break;
                 case 4:
-                    System.out.println("我得到了随机水果");
-                    fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
+                    System.out.println("我得到了坏掉的水果");
+                    fruits.add("坏掉的" + fruitsName[random.nextInt(fruitsName.length)]);
                 case 6:
                     System.out.println("我得到了随机水果");
-                    fruits.add(fruitsName[random.nextInt(fruitsName.length)]);
+                    fruits.add((random.nextBoolean() ? "好吃的" : "坏掉的") + fruitsName[random.nextInt(fruitsName.length)]);
                     break;
                 default:
                     System.out.println("无事发生");
