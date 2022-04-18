@@ -9,6 +9,7 @@ package session1;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -81,8 +82,13 @@ public class Main {
                     }
                 } else {
                     money = money2;
-                    fruits.clear();
-                    fruits.addAll(fruits2);
+                    if (vipp) {
+                        fruits.clear();
+                        fruits = fruits2.stream().filter(fruit -> fruit.startsWith("好吃的")).collect(Collectors.toCollection(ArrayList::new));
+                    } else {
+                        fruits.clear();
+                        fruits.addAll(fruits2);
+                    }
                     count--;
                     System.out.println("胜败乃兵家常事，大侠请重新来过！");
                 }
